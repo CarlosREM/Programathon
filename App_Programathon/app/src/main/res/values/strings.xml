@@ -2,21 +2,21 @@
     <string name="app_name">App-rendamos</string>
 
     <!-- LOGIN ACTIVITY -->
-    <string name="Login_Bienvenido"    >Bienvenido</string>
-    <string name="Login_Instruccion"   >Introduzca sus credenciales</string>
-    <string name="Login_Username"      >DNI</string>
-    <string name="Login_Password"      >Contraseña</string>
-    <string name="Login_LoginButton"   >Ingresar</string>
+    <string name="Login_Bienvenido">Bienvenido</string>
+    <string name="Login_Instruccion">Introduzca sus credenciales</string>
+    <string name="Login_Username">DNI</string>
+    <string name="Login_Password">Contraseña</string>
+    <string name="Login_LoginButton">Ingresar</string>
 
     <!-- -->
-    <string name="MenuNormalUser_VerLista"              >Ver Lista</string>
-    <string name="MenuNormalUser_ConsultarFormulario"   >Consultar Formulario</string>
-    <string name="MenuNormalUser_RegistrarResultados"   >Registrar Resultados</string>
-    <string name="MenuNormalUser_CrearPlanAccion"       >Crear Plan de Accion</string>
-    <string name="MenuNormalUser_ListarCuestionarios"   >Listar Cuestionarios</string>
-    <string name="MenuNormalUser_ResultadosHistoricos"  >Consultar Resultados Historicos</string>
-    <string name="MenuNormalUser_ConsultPlanesAccion"   >Consultar Planes de Accion</string>
-    <string name="MenuNormalUser_CerrarSesion"          >Cerrar Sesion</string>
+    <string name="MenuNormalUser_VerLista">Ver Lista</string>
+    <string name="MenuNormalUser_ConsultarFormulario">Consultar Formulario</string>
+    <string name="MenuNormalUser_RegistrarResultados">Registrar Resultados</string>
+    <string name="MenuNormalUser_CrearPlanAccion">Crear Plan de Accion</string>
+    <string name="MenuNormalUser_ListarCuestionarios">Listar Cuestionarios</string>
+    <string name="MenuNormalUser_ResultadosHistoricos">Consultar Resultados Historicos</string>
+    <string name="MenuNormalUser_ConsultPlanesAccion">Consultar Planes de Accion</string>
+    <string name="MenuNormalUser_CerrarSesion">Cerrar Sesion</string>
 
     <string name="btnSalir">Salir</string>
 
