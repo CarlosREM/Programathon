@@ -7,14 +7,80 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/txtBienvenido"
+        android:id="@+id/login_lblBienvenido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="128dp"
         android:fontFamily="@font/quicksand"
-        android:text="@string/strBienvenido"
+        android:text="@string/Login_Bienvenido"
         android:textAlignment="center"
+        android:textColor="@color/colorPurple"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_lblInstruccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/quicksand"
+        android:text="@string/Login_Instruccion"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_lblBienvenido" />
+
+    <EditText
+        android:id="@+id/login_txtUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand"
+        android:hint="@string/Login_Username"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_lblInstruccion" />
+
+    <EditText
+        android:id="@+id/login_txtPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand"
+        android:hint="@string/Login_Password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textColorHighlight="@color/colorGreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_txtUsername" />
+
+    <Button
+        android:id="@+id/login_btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="96dp"
+        android:backgroundTint="@color/colorBlue"
+        android:fontFamily="@font/multicolore"
+        android:padding="24sp"
+        android:text="@string/Login_LoginButton"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_txtPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
