@@ -6,7 +6,8 @@
 
     <color name="colorGreen">#A5C83E</color>
     <color name="colorPurple">#793480</color>
-    <color name="colorBlue">#09B6EB</color>|
+    <color name="colorBlue">#09B6EB</color>
+    <color name="colorLightBlue">#09B6AA</color>|
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
 
