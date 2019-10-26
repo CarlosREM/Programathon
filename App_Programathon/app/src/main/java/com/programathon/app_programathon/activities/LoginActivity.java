@@ -120,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                             edit.putString("access_token", saveToken);
                             edit.putString("LoginData", loginData.toString());
                             edit.putString("UserInfo", userInfo.toString());
+                            edit.putString("DNI",username);
                             edit.apply();
 
                             Intent i = new Intent(getBaseContext(), MenuNormalUserActivity.class);

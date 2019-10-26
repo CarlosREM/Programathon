@@ -67,10 +67,13 @@
                 android:weightSum="2">
 
                 <LinearLayout
+                    android:id="@+id/layoutListarAsociados"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_weight="1"
+                    android:onClick="checkForStudents"
                     android:orientation="vertical"
+                    android:visibility="invisible"
                     android:weightSum="3">
 
                     <ImageView
@@ -80,7 +83,8 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1.5"
-                        android:src="@drawable/view_list" />
+                        android:src="@drawable/view_list"
+                        android:visibility="visible" />
 
                     <TextView
                         android:id="@+id/textViewLista"
