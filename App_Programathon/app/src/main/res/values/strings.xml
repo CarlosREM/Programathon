@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">App_Programathon</string>
+    <string name="app_name">App-rendamos</string>
+
+    <!-- LOGIN ACTIVITY -->
+    <string name="strBienvenido"    >Bienvenido</string>
+    <string name="strInstruccion"   >Introduzca sus credenciales</string>
+    <string name="strUsername"      >Nombre de usuario</string>
+    <string name="strPassword"      >Contraseña</string>
+
+
+
 </resources>
