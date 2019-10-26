@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <TextView
         android:id="@+id/login_lblBienvenido"
@@ -46,7 +46,8 @@
         android:fontFamily="@font/quicksand"
         android:hint="@string/Login_Username"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_lblInstruccion" />
@@ -82,5 +83,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/login_txtPassword"
+
+        android:onClick="onClickBtnLogin"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

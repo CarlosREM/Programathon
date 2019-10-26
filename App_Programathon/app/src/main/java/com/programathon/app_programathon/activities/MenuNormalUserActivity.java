@@ -1,10 +1,12 @@
-package com.programathon.app_programathon;
+package com.programathon.app_programathon.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MenuNormalUser extends AppCompatActivity {
+import com.programathon.app_programathon.R;
+
+public class MenuNormalUserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
