@@ -28,6 +28,7 @@
 
     <!-- CICLO DESARROLLO -->
     <string name="CicloDesarrollo_title">Ciclo de Desarrollo Integral</string>
+    <string name="CicloDesarrollo_infoHeader">Info. de Niño/a</string>
     <string name="CicloDesarrollo_nombre">Nombre:</string>
     <string name="CicloDesarrollo_dob">Fecha Nacimiento:</string>
     <string name="CicloDesarrollo_gender">Género:</string>
@@ -47,7 +48,7 @@
     <!-- REGISTRAR RESULTADOS -->
     <string name="RegistrarResults_title">Registrar Resultados de ASQ-3</string>
     <string name="RegistrarResults_fechaApl">Fecha de aplicacion:</string>
-    <string name="RegistrarResults_formName">Nombre de cuestionario:</string>
+    <string name="RegistrarResults_formName">Nombre de \ncuestionario:</string>
     <string name="RegistrarResults_areas">Areas de cuestionario:</string>
     <string name="RegistrarResults_btnCancelar">Cancelar</string>
     <string name="RegistrarResults_btnGuardar">Guardar</string>
@@ -62,6 +63,6 @@
     <string name="TestArea_total">Total:</string>
     <string name="TestArea_estado">Estado:</string>
 
-    <string name="hintDate">dd/mm/yyyy</string>
+    <string name="hintDate">dd-mm-yyyy</string>
 
 </resources>
