@@ -3,12 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="32dp"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TestArea_estado"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <ImageView
+        android:id="@+id/TestArea_imgState"
+        android:layout_width="46dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:tint="@color/testIconRed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_total"
+        app:srcCompat="@drawable/ic_areastate" />
+
     <Spinner
-        android:id="@+id/testArea_spnRespuesta6"
+        android:id="@+id/TestArea_spnRespuesta6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -17,22 +42,11 @@
         android:entries="@array/puntaje"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/testArea_txtPregunta6"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_spnRespuesta5" />
-
-    <TextView
-        android:id="@+id/testArea_txtPregunta6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/TestArea_pregunta6"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_txtPregunta5" />
+        app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta6"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta5" />
 
     <Spinner
-        android:id="@+id/testArea_spnRespuesta5"
+        android:id="@+id/TestArea_spnRespuesta5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -41,22 +55,11 @@
         android:entries="@array/puntaje"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/testArea_txtPregunta5"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_spnRespuesta4" />
-
-    <TextView
-        android:id="@+id/testArea_txtPregunta5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/TestArea_pregunta5"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_txtPregunta4" />
+        app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta5"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta4" />
 
     <Spinner
-        android:id="@+id/testArea_spnRespuesta4"
+        android:id="@+id/TestArea_spnRespuesta4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -66,22 +69,11 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/testArea_txtPregunta4"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_spnRespuesta3" />
-
-    <TextView
-        android:id="@+id/testArea_txtPregunta4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/TestArea_pregunta4"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_txtPregunta3" />
+        app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta4"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta3" />
 
     <Spinner
-        android:id="@+id/testArea_spnRespuesta3"
+        android:id="@+id/TestArea_spnRespuesta3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -91,22 +83,11 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/testArea_txtPregunta3"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_spnRespuesta2" />
-
-    <TextView
-        android:id="@+id/testArea_txtPregunta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/TestArea_pregunta3"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_txtPregunta2" />
+        app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta3"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta2" />
 
     <Spinner
-        android:id="@+id/testArea_spnRespuesta2"
+        android:id="@+id/TestArea_spnRespuesta2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -116,19 +97,8 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/testArea_txtPregunta2"
+        app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta2"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta1" />
-
-    <TextView
-        android:id="@+id/testArea_txtPregunta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/TestArea_pregunta2"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta1" />
 
     <Spinner
         android:id="@+id/TestArea_spnRespuesta1"
@@ -142,6 +112,61 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta1"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_txtTitulo" />
+
+    <TextView
+        android:id="@+id/TestArea_txtPregunta6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TestArea_pregunta6"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta5" />
+
+    <TextView
+        android:id="@+id/TestArea_txtPregunta5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TestArea_pregunta5"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta4" />
+
+    <TextView
+        android:id="@+id/TestArea_txtPregunta4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TestArea_pregunta4"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta3" />
+
+    <TextView
+        android:id="@+id/TestArea_txtPregunta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TestArea_pregunta3"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta2" />
+
+    <TextView
+        android:id="@+id/TestArea_txtPregunta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TestArea_pregunta2"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta1" />
 
     <TextView
         android:id="@+id/TestArea_txtPregunta1"
@@ -178,42 +203,18 @@
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_txtPregunta6" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta6" />
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/TestArea_total"
+        android:layout_width="54dp"
+        android:layout_height="34dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
         android:textSize="24sp"
         android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_spnRespuesta6"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta6"
         tools:text="0" />
 
-    <ImageView
-        android:id="@+id/TestArea_imgState"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="32dp"
-        android:tint="@color/testRed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/ic_areastate" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="116dp"
-        android:text="@string/TestArea_estado"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testArea_txtPregunta6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

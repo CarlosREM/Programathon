@@ -31,6 +31,8 @@ import java.util.Map;
 
 public class CicloDesarrolloIntegral extends AppCompatActivity {
 
+    JSONObject studentInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,7 @@ public class CicloDesarrolloIntegral extends AppCompatActivity {
 
         Intent intent = getIntent();
         try {
-            JSONObject studentInfo = new JSONObject(intent.getStringExtra("studentInfo"));
+            studentInfo = new JSONObject(intent.getStringExtra("studentInfo"));
 
             String name = studentInfo.getString("firstName") + " " + studentInfo.getString("lastName");
             txtName.setText(name);
@@ -68,5 +70,9 @@ public class CicloDesarrolloIntegral extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    public void startRegistrarResultadosActivity(View view) {
+        Intent i = new Intent(getBaseContext(), RegistrarResultadosActivity.class);
+        i.putExtra("studentInfo", studentInfo.toString());
+        startActivity(i);
+    }
 }

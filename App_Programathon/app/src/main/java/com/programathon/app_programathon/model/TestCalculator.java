@@ -187,6 +187,10 @@ public class TestCalculator {
                 return questionaries.get(i);
             }
             if (diffMonths.getMonths() == questionaries.get(i).getMinMonths()) {
+                if (diffDays.getDays() >= questionaries.get(i).getMinDays())
+                    return questionaries.get(i);
+            }
+            if (diffMonths.getMonths() == questionaries.get(i).getMinMonths()) {
                 if (diffDays.getDays() >= questionaries.get(i).getMinDays()) {
                     return questionaries.get(i);
                 }

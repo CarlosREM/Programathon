@@ -4,13 +4,12 @@
     <color name="colorGreen">#A5C83E</color>
     <color name="colorPurple">#793480</color>
     <color name="colorBlue">#09B6EB</color>
-    <color name="colorLightBlue">#09B6AA</color>|
+    <color name="colorLightBlue">#09B6AA</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
 
     <!-- TEST COLORS-->
-    <color name="testGreen">#2B2B2B</color>
-    <color name="testYellow">#793480</color>
-    <color name="testRed">#793480</color>
-
+    <color name="testIconGreen">#388E3C</color>
+    <color name="testIconYellow">#FBC02D</color>
+    <color name="testIconRed">#D32F2F</color>
 </resources>
