@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.model.EstudianteExamenListAdapter;
 import com.programathon.app_programathon.model.OnRecycleItemListener;
+import com.programathon.app_programathon.model.TestCalculator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,16 +41,24 @@ public class ListaEstudiantesActivity extends AppCompatActivity implements OnRec
     private void setupRecyclerView(JSONArray myStudents) {
         RecyclerView recyclerView = findViewById(R.id.ListaEstudiante_recyclerView);
 
-        // saca el array de los nombres de los tests
+        try {
+            ArrayList<String> testNameArray = new ArrayList<>();
+            JSONObject studentInfo;
+            String dob;
+            for (int i = 0; i < myStudents.length(); i++) {
+                studentInfo = myStudents.getJSONObject(i);
+                dob = studentInfo.getString("dob").split("T")[0];
+                testNameArray.add(TestCalculator.getInstance().calculateDatesDiff(dob, null));
+            }
 
-        ArrayList<String> testNameArray = new ArrayList<>();
-        for (int i = 0; i < myStudents.length(); i++)
-            testNameArray.add("testName");
-
-        //setup adapter
-        EstudianteExamenListAdapter adapter = new EstudianteExamenListAdapter(myStudents, testNameArray, this);
-        this.adapter = adapter;
-        recyclerView.setAdapter(adapter);
+            //setup adapter
+            EstudianteExamenListAdapter adapter = new EstudianteExamenListAdapter(myStudents, testNameArray, this);
+            this.adapter = adapter;
+            recyclerView.setAdapter(adapter);
+            }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -143,9 +143,18 @@ public class TestCalculator {
             Log.d("Max months", String.valueOf(questionaries.get(i).getMaxMonths()));
             Log.d("Min days", String.valueOf(questionaries.get(i).getMinDays()));
             Log.d("Max days", String.valueOf(questionaries.get(i).getMaxDays()));
-            if(diffMonths.getMonths() >= questionaries.get(i).getMinMonths() && diffMonths.getMonths() <= questionaries.get(i).getMaxMonths()
-                && diffDays.getDays() >= questionaries.get(i).getMinDays() && diffDays.getDays() <= questionaries.get(i).getMaxDays()){
+            if (diffMonths.getMonths() > questionaries.get(i).getMinMonths() && diffMonths.getMonths() < questionaries.get(i).getMaxMonths()) {
                 return questionaries.get(i).getName();
+            }
+            if (diffMonths.getMonths() == questionaries.get(i).getMinMonths()) {
+                if (diffDays.getDays() >= questionaries.get(i).getMinDays()) {
+                    return questionaries.get(i).getName();
+                }
+            }
+            if (diffMonths.getMonths() == questionaries.get(i).getMaxMonths()) {
+                if (diffDays.getDays() <= questionaries.get(i).getMaxDays()) {
+                    return questionaries.get(i).getName();
+                }
             }
         }
         return "No hay formulario asociado.";

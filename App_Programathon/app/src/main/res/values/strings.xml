@@ -44,6 +44,15 @@
     <string name="CicloDesarrollo_btnConsultResults">Consultar Resultados Historicos ASQ-3</string>
     <string name="CicloDesarrollo_btnConsultPlanes">Consultar Planes de Accion</string>
 
+    <!-- TEST AREA LAYOUT -->
+    <string name="TestArea_pregunta1">Pregunta 1:</string>
+    <string name="TestArea_pregunta2">Pregunta 2:</string>
+    <string name="TestArea_pregunta3">Pregunta 3:</string>
+    <string name="TestArea_pregunta4">Pregunta 4:</string>
+    <string name="TestArea_pregunta5">Pregunta 5:</string>
+    <string name="TestArea_pregunta6">Pregunta 6:</string>
+    <string name="TestArea_total">Total:</string>
+    <string name="TestArea_estado">Estado:</string>
 
 
 
