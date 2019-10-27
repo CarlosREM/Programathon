@@ -1,6 +1,7 @@
 package com.programathon.app_programathon.view;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -29,20 +30,28 @@ public class TestArea extends ConstraintLayout {
     public TestArea(Context context, String title, int minValue, int maxValue) {
         super(context);
 
-        TextView txtTitle = findViewById(R.id.TestArea_txtTitulo);
-        txtTitle.setText(title);
-
-        spnRespuesta1 = findViewById(R.id.TestArea_spnRespuesta1);
-        spnRespuesta2 = findViewById(R.id.TestArea_spnRespuesta2);
-        spnRespuesta3 = findViewById(R.id.TestArea_spnRespuesta3);
-        spnRespuesta4 = findViewById(R.id.TestArea_spnRespuesta4);
-        spnRespuesta5 = findViewById(R.id.TestArea_spnRespuesta5);
-        spnRespuesta6 = findViewById(R.id.TestArea_spnRespuesta6);
-        txtTotal = findViewById(R.id.TestArea_total);
-        imgState = findViewById(R.id.TestArea_imgState);
-
         this.minValue = minValue;
         this.maxValue = maxValue;
+
+        init(context, title);
+
+    }
+
+    private void init(Context context, String title) {
+
+
+        View v = LayoutInflater.from(context).inflate(R.layout.test_area_layout, this);
+        TextView txtTitle = v.findViewById(R.id.TestArea_txtTitulo);
+        txtTitle.setText(title);
+
+        spnRespuesta1 = v.findViewById(R.id.TestArea_spnRespuesta1);
+        spnRespuesta2 = v.findViewById(R.id.TestArea_spnRespuesta2);
+        spnRespuesta3 = v.findViewById(R.id.TestArea_spnRespuesta3);
+        spnRespuesta4 = v.findViewById(R.id.TestArea_spnRespuesta4);
+        spnRespuesta5 = v.findViewById(R.id.TestArea_spnRespuesta5);
+        spnRespuesta6 = v.findViewById(R.id.TestArea_spnRespuesta6);
+        txtTotal = v.findViewById(R.id.TestArea_total);
+        imgState = v.findViewById(R.id.TestArea_imgState);
 
         setupSpinnerListeners();
     }
@@ -67,12 +76,12 @@ public class TestArea extends ConstraintLayout {
     }
 
     private void updateTotal() {
-        int respuesta1 = (int) spnRespuesta1.getSelectedItem();
-        int respuesta2 = (int) spnRespuesta2.getSelectedItem();
-        int respuesta3 = (int) spnRespuesta3.getSelectedItem();
-        int respuesta4 = (int) spnRespuesta4.getSelectedItem();
-        int respuesta5 = (int) spnRespuesta5.getSelectedItem();
-        int respuesta6 = (int) spnRespuesta6.getSelectedItem();
+        int respuesta1 = Integer.parseInt((String) spnRespuesta1.getSelectedItem());
+        int respuesta2 = Integer.parseInt((String) spnRespuesta2.getSelectedItem());
+        int respuesta3 = Integer.parseInt((String) spnRespuesta3.getSelectedItem());
+        int respuesta4 = Integer.parseInt((String) spnRespuesta4.getSelectedItem());
+        int respuesta5 = Integer.parseInt((String) spnRespuesta5.getSelectedItem());
+        int respuesta6 = Integer.parseInt((String) spnRespuesta6.getSelectedItem());
 
         int total = respuesta1 + respuesta2 + respuesta3 + respuesta4 + respuesta5 + respuesta6;
 
@@ -92,6 +101,10 @@ public class TestArea extends ConstraintLayout {
             stateIconColor = R.color.testIconGreen;
 
         return stateIconColor;
+    }
+
+    public int getTotal() {
+        return Integer.parseInt(txtTotal.getText().toString());
     }
 
 

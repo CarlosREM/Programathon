@@ -62,5 +62,6 @@
     <string name="TestArea_total">Total:</string>
     <string name="TestArea_estado">Estado:</string>
 
+    <string name="hintDate">dd/mm/yyyy</string>
 
 </resources>

@@ -65,12 +65,20 @@ public class CicloDesarrolloIntegral extends AppCompatActivity {
             txtYear.setText(classroomInfo.getString("classYear"));
             txtSection.setText(classroomInfo.getString("section"));
 
+
+
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
     }
     public void startRegistrarResultadosActivity(View view) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.d("student info: ",studentInfo.toString());
         Intent i = new Intent(getBaseContext(), RegistrarResultadosActivity.class);
         i.putExtra("studentInfo", studentInfo.toString());
         startActivity(i);

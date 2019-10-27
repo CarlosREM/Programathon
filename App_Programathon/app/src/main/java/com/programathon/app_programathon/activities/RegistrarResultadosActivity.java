@@ -2,13 +2,13 @@ package com.programathon.app_programathon.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,16 +19,13 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 import com.programathon.app_programathon.R;
+import com.programathon.app_programathon.view.TestArea;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
 import com.programathon.app_programathon.model.ASQ3;
 import com.programathon.app_programathon.model.TestCalculator;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class RegistrarResultadosActivity extends AppCompatActivity {
 
@@ -52,6 +49,8 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
 
         }
         catch (JSONException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

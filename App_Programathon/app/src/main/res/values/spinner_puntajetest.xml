@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer-array name="puntaje">
+    <string-array name="puntaje">
         <item>0</item>
         <item>5</item>
         <item>10</item>
-    </integer-array>
+    </string-array>
 </resources>
