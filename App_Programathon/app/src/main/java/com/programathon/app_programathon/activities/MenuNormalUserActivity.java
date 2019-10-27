@@ -19,6 +19,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
@@ -134,21 +135,21 @@ public class MenuNormalUserActivity extends AppCompatActivity {
         }
     }
 
-    private void makeLoginRequest() throws JSONException {
-        String url = ConfigConstants.getInstance().getAPI_URL() + "Attendance/GetById?attendanceId=1";
+    private void makeLoginRequest(String testId) throws JSONException {
+        String url = ConfigConstants.getInstance().getAPI_URL() + "FormPlan/GetByFormId?formHeaderId="+ testId;
         SharedPreferences prefs;
         prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
-        final String userName = prefs.getString("DNI",null);
+
 
         JSONObject loginData = null;
 
             loginData = new JSONObject(prefs.getString("LoginData", null));
             final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>()
+        JsonArrayRequest postRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>()
                 {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
 
                         Log.d("Response", response.toString());
 
@@ -173,9 +174,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                         String msg = "Error: ";
                         assert getCurrentFocus() != null;
                         switch(error.networkResponse.statusCode) {
-                            case 401:
-                                msg += "Usuario y/o contraseña invalidos";
-                                break;
+
                             default:
                                 msg += "desconocido";
                                 break;
