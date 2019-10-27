@@ -17,12 +17,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,33 +52,37 @@ public class MenuNormalUserActivity extends AppCompatActivity {
             JSONObject userInfo = new JSONObject(prefs.getString("UserInfo", null));
             String user = userInfo.getString("givenName") + " - " + userInfo.getString("role");
             usernameToolbar.setText(user);
-            if(userInfo.getString("role").equals("normal")){
+            if(userInfo.getString("role").equals("Profesor")){
                 LinearLayout layoutButton = findViewById(R.id.layoutListarAsociados);
                 layoutButton.setVisibility(LinearLayout.VISIBLE);
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     public void checkForStudents(View view){
         SharedPreferences prefs;
         prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
         String userName = prefs.getString("DNI",null);
-        String url = ConfigConstants.getInstance().getAPI_URL() + "Teacher/GetByDNI?dni=" + userName;
+        String url = ConfigConstants.getInstance().getAPI_URL() + "Student/GetByDNI?dni=" + userName;
         JSONObject loginData = null;
         try {
             loginData = new JSONObject(prefs.getString("LoginData", null));
-            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
-            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                    new Response.Listener<JSONObject>()
+            final String authorization =  "Bearer " + loginData.getString("access_token");
+            Log.d("Authorization: ",authorization);
+            StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>()
                     {
                         @Override
-                        public void onResponse(JSONObject response) {
+                        public void onResponse(String response) {
                             Log.d("Response", response.toString());
                         }
+
+                        /*@Override
+                        public void onResponse(String response) {
+                            Log.d("Response", response.toString());
+                        }*/
                     },
                     new Response.ErrorListener()
                     {
@@ -89,6 +96,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                             else if (error.networkResponse == null) {
                                 Log.d("Error.Response", "Null Network Response");
                                 Log.d("Error.Response", error.toString());
+                                Log.d("Error message",error.getMessage());
                                 return;
                             }
                             Log.d("Error.Response", error.toString());
@@ -110,7 +118,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                 @Override
                 public Map<String, String> getHeaders() {
                     Map<String,String> headers=new HashMap<>();
-                    headers.put("accept","application/json");
+                    headers.put("Content-Type","application/json");
                     headers.put("Authorization",authorization);
                     return headers;
                 }
