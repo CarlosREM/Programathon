@@ -126,8 +126,9 @@ public class TestCalculator {
         if(lastApplicationDate == null){
             lastApplicationDate = new DateTime();
         }
+        Log.d("bornDateString", bornDateString);
 
-        org.joda.time.format.DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-mm-dd");
+        org.joda.time.format.DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
 
         DateTime bornDate = formatter.parseDateTime(bornDateString);
         Log.d("Born date:",bornDate.toString());

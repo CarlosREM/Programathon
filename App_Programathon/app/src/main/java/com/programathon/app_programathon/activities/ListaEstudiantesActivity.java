@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -47,6 +48,7 @@ public class ListaEstudiantesActivity extends AppCompatActivity implements OnRec
             String dob;
             for (int i = 0; i < myStudents.length(); i++) {
                 studentInfo = myStudents.getJSONObject(i);
+                Log.d("StudentInfo", studentInfo.toString());
                 dob = studentInfo.getString("dob").split("T")[0];
                 testNameArray.add(TestCalculator.getInstance().calculateDatesDiff(dob, null));
             }
