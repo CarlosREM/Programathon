@@ -71,9 +71,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_weight="1"
+                    android:clickable="false"
                     android:onClick="checkForStudents"
                     android:orientation="vertical"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:weightSum="3">
 
                     <ImageView

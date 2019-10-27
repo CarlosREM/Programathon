@@ -7,8 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd8b7ae4-2791-4c2e-8464-44684a7b6af6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="66" column="74" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
+            <state relative-caret-position="-66">
+              <caret line="78" column="65" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="65" />
               <folding>
                 <element signature="e#5563#5988#0" expanded="true" />
                 <element signature="e#5987#5988#0" expanded="true" />
@@ -49,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="113" column="91" selection-start-line="113" selection-start-column="91" selection-end-line="113" selection-end-column="91" />
+            <state relative-caret-position="66">
+              <caret line="62" column="125" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="125" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,6 +67,16 @@
                 <element signature="e#1144#1145#0" expanded="true" />
                 <element signature="e#1174#1175#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="30" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -89,7 +99,6 @@
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/AreasDesarrollo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultados.java" />
@@ -99,6 +108,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/CicloDesarrolloIntegral.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_ciclo_desarrollo_integral.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/globalconfig/ConfigConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java" />
       </list>
     </option>
@@ -149,6 +159,24 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="app_programathon" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="globalconfig" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="App_Programathon" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="app_programathon" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="App_Programathon" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="App_Programathon" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="App_Programathon" type="1abcf292:AndroidViewProjectNode" />
@@ -260,7 +288,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" sideWeight="0.4989429" visible="true" weight="0.22416107" />
       <window_info id="Structure" side_tool="true" />
@@ -271,7 +298,7 @@
       <window_info id="Capture Tool" />
       <window_info id="Favorites" sideWeight="0.5010571" side_tool="true" weight="0.3295302" />
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Run" visible="true" weight="0.24645892" />
+      <window_info active="true" anchor="bottom" id="Run" visible="true" weight="0.5240793" />
       <window_info anchor="bottom" id="Logcat" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="TODO" />
@@ -359,14 +386,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="30" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -427,16 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="113" column="91" selection-start-line="113" selection-start-column="91" selection-end-line="113" selection-end-column="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/globalconfig/ConfigConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
@@ -448,10 +457,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="30" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="62" column="125" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="125" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="66" column="74" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
+        <state relative-caret-position="-66">
+          <caret line="78" column="65" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="65" />
           <folding>
             <element signature="e#5563#5988#0" expanded="true" />
             <element signature="e#5987#5988#0" expanded="true" />

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +55,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
             usernameToolbar.setText(user);
             if(userInfo.getString("role").equals("Profesor")){
                 LinearLayout layoutButton = findViewById(R.id.layoutListarAsociados);
-                layoutButton.setVisibility(LinearLayout.VISIBLE);
+                layoutButton.setClickable(true);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -63,19 +65,20 @@ public class MenuNormalUserActivity extends AppCompatActivity {
     public void checkForStudents(View view){
         SharedPreferences prefs;
         prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
-        String userName = prefs.getString("DNI",null);
-        String url = ConfigConstants.getInstance().getAPI_URL() + "Student/GetByDNI?dni=1001";
+        final String userName = prefs.getString("DNI",null);
+        String url = ConfigConstants.getInstance().getAPI_URL() + "Student/GetMyStudents";
         JSONObject loginData = null;
         try {
             loginData = new JSONObject(prefs.getString("LoginData", null));
-            final String authorization =  "Bearer " + loginData.getString("access_token");
+            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
             Log.d("Authorization: ",authorization);
-            JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                    new Response.Listener<JSONObject>()
+            JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                    new Response.Listener<JSONArray>()
                     {
                         @Override
-                        public void onResponse(JSONObject response) {
+                        public void onResponse(JSONArray response) {
                             Log.d("Response", response.toString());
+
                         }
                     },
                     new Response.ErrorListener()
@@ -88,7 +91,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                                 return;
                             }
                             else if (error.networkResponse == null) {
-                                Log.d("Error.Response", "Null Network Response");
+                                Toast.makeText(getApplicationContext(), "El profesor no tiene estudiantes asociados.", Toast.LENGTH_SHORT).show();                                Log.d("Error.Response", "Null Network Response");
                                 Log.d("Error.Response", error.toString());
                                 return;
                             }
@@ -97,9 +100,6 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                             String msg = "Error: ";
                             assert getCurrentFocus() != null;
                             switch(error.networkResponse.statusCode) {
-                                case 401:
-                                    msg += "Usuario y/o contraseña invalidos";
-                                    break;
                                 default:
                                     msg += "desconocido";
                                     break;
