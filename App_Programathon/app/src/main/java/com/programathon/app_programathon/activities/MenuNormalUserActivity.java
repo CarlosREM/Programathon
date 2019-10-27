@@ -21,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.snackbar.Snackbar;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
 
@@ -109,7 +108,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                                     msg += "desconocido";
                                     break;
                             }
-                            Snackbar.make(getCurrentFocus(), msg, Snackbar.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                         }
                     }
             ) {

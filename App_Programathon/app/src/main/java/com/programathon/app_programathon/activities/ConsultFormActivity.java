@@ -60,7 +60,7 @@ public class ConsultFormActivity extends AppCompatActivity {
 
 
     }
-
+/*
     public void makeStudentByDniRequest(final int id) throws JSONException {
         SharedPreferences prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
         String url = ConfigConstants.getInstance().getAPI_URL() + "Student/GetByDNI";
@@ -149,7 +149,7 @@ public class ConsultFormActivity extends AppCompatActivity {
 
         Log.d("PostRequest", postRequest.toString());
         queue.add(postRequest);
-    }
+    }*/
 
 
 

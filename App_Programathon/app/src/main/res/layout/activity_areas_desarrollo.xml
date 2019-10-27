@@ -83,12 +83,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="38dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="169dp"
+                android:layout_width="154dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Button" />
@@ -104,9 +104,8 @@
             android:layout_width="183dp"
             android:layout_height="95dp"
             android:layout_marginLeft="100dp"
-            app:numberOfDots="5"
+            app:numberOfDots="7"
             app:selectedDotColor="@color/colorBlue"
-            app:selectedDotIndex="1"
             app:unselectedDotColor="@color/colorBlue" />
 
     </LinearLayout>

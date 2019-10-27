@@ -5,9 +5,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.programathon.app_programathon.R;
+import com.programathon.app_programathon.model.EstudianteExamenListAdapter;
+import com.programathon.app_programathon.model.OnRecycleItemListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,52 +18,51 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ListaEstudiantesActivity extends AppCompatActivity {
+public class ListaEstudiantesActivity extends AppCompatActivity implements OnRecycleItemListener {
 
-    private TextView header1,
-                     header2;
-    private RecyclerView recyclerView;
-
-    private JSONArray listStudents;
+    private EstudianteExamenListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_estudiantes);
 
-        header1 = findViewById(R.id.ListaEstudiantes_header1);
-        header2 = findViewById(R.id.ListaEstudiantes_header2);
-        recyclerView = findViewById(R.id.ListaEstudiante_recyclerView);
-
-        header1.setText("Nombre");
-        header2.setText("ASQ-3");
-
         Intent i = getIntent();
         try {
-            listStudents = new JSONArray(i.getStringExtra("myStudents"));
-
-            ArrayList<String> studentNames = getStudentNames(listStudents);
+            JSONArray myStudents = new JSONArray(i.getStringExtra("myStudents"));
+            setupRecyclerView(myStudents);
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private ArrayList<String> getStudentNames(JSONArray studentList) {
+    private void setupRecyclerView(JSONArray myStudents) {
+        RecyclerView recyclerView = findViewById(R.id.ListaEstudiante_recyclerView);
 
-        ArrayList<String> studentNames = new ArrayList<>();
+        // saca el array de los nombres de los tests
 
+        ArrayList<String> testNameArray = new ArrayList<>();
+        for (int i = 0; i < myStudents.length(); i++)
+            testNameArray.add("testName");
+
+        //setup adapter
+        EstudianteExamenListAdapter adapter = new EstudianteExamenListAdapter(myStudents, testNameArray, this);
+        this.adapter = adapter;
+        recyclerView.setAdapter(adapter);
+    }
+
+
+    @Override
+    public void OnItemClick(int position) {
         try {
-            JSONObject student;
-            for (int i = 0; i < studentList.length(); i++) {
-                student = studentList.getJSONObject(i);
-                studentNames.add(student.get("firstName") + " " + student.get("lastName"));
-            }
+            JSONObject studentInfo = adapter.getStudentInfo(position);
+            Intent i = new Intent(getBaseContext(), CicloDesarrolloIntegral.class);
+            i.putExtra("studentInfo", studentInfo.toString());
+            startActivity(i);
         }
-        catch(JSONException ex) {
-            ex.printStackTrace();
+        catch (JSONException e) {
+            e.printStackTrace();
         }
-
-        return studentNames;
     }
 }
