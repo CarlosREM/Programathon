@@ -64,9 +64,11 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                 LinearLayout layoutButton = findViewById(R.id.layoutListarAsociados);
                 layoutButton.setClickable(true);
             }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     public void checkForStudents(View view){
@@ -133,6 +135,70 @@ public class MenuNormalUserActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private void makeLoginRequest() throws JSONException {
+        String url = ConfigConstants.getInstance().getAPI_URL() + "Attendance/GetById?attendanceId=1";
+        SharedPreferences prefs;
+        prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
+        final String userName = prefs.getString("DNI",null);
+
+        JSONObject loginData = null;
+
+            loginData = new JSONObject(prefs.getString("LoginData", null));
+            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        Log.d("Response", response.toString());
+
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        if (error == null) {
+                            Log.d("Error.Response", "Null error");
+                            return;
+                        }
+                        else if (error.networkResponse == null) {
+                            Log.d("Error.Response", "Null Network Response");
+                            Log.d("Error.Response", error.toString());
+                            return;
+                        }
+                        Log.d("Error.Response", error.toString());
+
+                        String msg = "Error: ";
+                        assert getCurrentFocus() != null;
+                        switch(error.networkResponse.statusCode) {
+                            case 401:
+                                msg += "Usuario y/o contraseña invalidos";
+                                break;
+                            default:
+                                msg += "desconocido";
+                                break;
+                        }
+                        Log.d("msg:", msg);
+                    }
+                }
+        ) {
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String,String> headers=new HashMap<>();
+                headers.put("accept","application/json");
+                headers.put("Authorization",authorization);
+                return headers;
+            }
+        };
+
+        Log.d("PostRequest", postRequest.toString());
+        queue.add(postRequest);
     }
 
     public void salirMensaje(View view){

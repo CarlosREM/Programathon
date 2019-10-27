@@ -17,13 +17,19 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Header;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.model.formArea;
@@ -33,10 +39,12 @@ import com.programathon.app_programathon.model.ASQ3;
 import com.programathon.app_programathon.model.TestCalculator;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -96,229 +104,63 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
         final String userName = prefs.getString("DNI",null);
-        String url = ConfigConstants.getInstance().getAPI_URL() + "Attendance/GetAllAttendances";
+        String url = ConfigConstants.getInstance().getAPI_URL() + "Attendance/AddAttendance";
         JSONObject loginData = null;
+
+
+
         try {
+            final JSONObject userInfo = new JSONObject(prefs.getString("UserInfo", null));
+            final int uid = userInfo.getInt("uid");
             loginData = new JSONObject(prefs.getString("LoginData", null));
             final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
             Log.d("Authorization: ",authorization);
-            JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                    new Response.Listener<JSONArray>()
-                    {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            Log.d("Response", response.toString());
-
-                            int length = response.length();
-                            length++;
-                            addAttendance(length);
-                        }
-                    },
-                    new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // error
-                            if (error == null) {
-                                Log.d("Error.Response", "Null error");
-                                return;
-                            }
-                            else if (error.networkResponse == null) {
-                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
-                                Log.d("Error.Response", "Null Network Response");
-                                return;
-                            }
-                            Log.d("Error.Response", error.toString());
-
-                            String msg = "Error: ";
-                            assert getCurrentFocus() != null;
-                            switch(error.networkResponse.statusCode) {
-                                default:
-                                    msg += "desconocido";
-                                    break;
-                            }
-                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-            ) {
-                @Override
-                public Map<String, String> getHeaders() {
-                    Map<String,String> headers=new HashMap<>();
-                    headers.put("accept","application/json");
-                    headers.put("Authorization",authorization);
-                    return headers;
-                }
-            };
-            Log.d("GetRequest", getRequest.toString());
-            queue.add(getRequest);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void addAttendance(final int attendanceId){
-
-        JSONObject loginData = null;
-        try {
-            final JSONObject userInfo = new JSONObject(prefs.getString("UserInfo", null));
-            int uid = userInfo.getInt("uid");
-            String url = ConfigConstants.getInstance().getAPI_URL() + "Attendance/AddAttendance";
-            loginData = new JSONObject(prefs.getString("LoginData", null));
-            final String authorization  = loginData.getString("token_type") + " " + loginData.getString("access_token");
-
 
             JSONObject postparams = new JSONObject();
-            postparams.put("id", attendanceId + "");
+
             String date = new DateTime().toString();
-            postparams.put("date", "2019-10-27T09:11:57.536Z");
+            postparams.put("date", new LocalDate().toString());
             ASQ3 form = TestCalculator.getInstance().calculateForm(studentInfo.getString("dob").split("T")[0],null);
-            postparams.put("formId", form.getId() + "");
-            postparams.put("studentId", studentInfo.getInt("id") + "");
-            postparams.put("applicatorId", uid + "");
+            postparams.put("formId", form.getId()+"");
+            postparams.put("studentId", studentInfo.getString("id")+"");
+            postparams.put("applicatorId", uid +"");
             postparams.put("status", "Active");
             JSONObject formParam = new JSONObject();
-            formParam.put("id", form.getId() + "");
+            formParam.put("id", studentInfo.getString("id")+"");
             formParam.put("name", form.getName());
             formParam.put("instructions", "string");
             formParam.put("status", "Active");
-            formParam.put("minAgeMonths", form.getMinMonths() + "");
-            formParam.put("minAgeDays", form.getMinDays() + "");
-            formParam.put("maxAgeMonths", form.getMaxMonths() + "");
-            formParam.put("maxAgeDays", form.getMaxDays() + "");
+            formParam.put("minAgeMonths", form.getMinMonths()+"");
+            formParam.put("minAgeDays", form.getMinDays()+"");
+            formParam.put("maxAgeMonths", form.getMaxMonths()+"");
+            formParam.put("maxAgeDays", form.getMaxDays()+"");
             postparams.put("form", formParam);
 
-            Log.d("postParams", postparams.toString());
+            final String mRequestBody = postparams.toString();
 
-            JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, postparams,
-                    new Response.Listener<JSONObject>()
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>()
                     {
                         @Override
-                        public void onResponse(JSONObject response) {
-
-                            addResult(attendanceId);
+                        public void onResponse(String response) {
+                            Toast.makeText(RegistrarResultadosActivity.this, "Attendance ingresado: " + response, Toast.LENGTH_SHORT).show();
+                            addResult(response);
                         }
                     },
                     new Response.ErrorListener()
                     {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            // error
-                            if (error == null) {
-                                Log.d("Error.Response", "Null error");
-                                return;
-                            }
-                            else if (error.networkResponse == null) {
-                                Toast.makeText(getApplicationContext(), "El profesor no tiene estudiantes asociados.", Toast.LENGTH_SHORT).show();                                Log.d("Error.Response", "Null Network Response");
-                                Log.d("Error.Response", error.toString());
-                                return;
-                            }
-                            String e = "";
-                            for(Header h : error.networkResponse.allHeaders){
-                                e = e + h.toString();
-                            }
-                            e = e + new String(error.networkResponse.data);
-
-                            Log.d("Error.Response", error.toString() + e);
-
-                            String msg = "Error: ";
-                            assert getCurrentFocus() != null;
-                            switch(error.networkResponse.statusCode) {
-                                default:
-                                    msg += "desconocido " ;
-                                    break;
-                            }
-                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-            ) {
-
-                @Override
-                public Map<String, String> getHeaders() {
-                    Map<String,String> headers=new HashMap<>();
-                    headers.put("accept","application/json");
-                    //headers.put("Content-Type","application/json");
-                    headers.put("Authorization",authorization);
-                    return headers;
-                }
-                @Override
-                public String getBodyContentType() {
-                    return "application/json";
-                }
-            };
-
-            Log.d("PostRequest", postRequest.toString());
-            queue.add(postRequest);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+                            Toast.makeText(RegistrarResultadosActivity.this, "Error ingresando Attend", Toast.LENGTH_SHORT).show();
+                            if(error.networkResponse.statusCode == 400)
+                                Toast.makeText(RegistrarResultadosActivity.this, "Registro ya existente", Toast.LENGTH_SHORT).show();
 
 
-    }
-    public void addResult(int attendanceId){
-
-        JSONObject loginData = null;
-        try {
-            String url = ConfigConstants.getInstance().getAPI_URL() + "Result/AddResults";
-            loginData = new JSONObject(prefs.getString("LoginData", null));
-            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
-
-            JSONObject postparams = new JSONObject();
-            postparams.put("attendanceId", attendanceId);
-            JSONArray resultList = new JSONArray();
-            for(int i = 1; i<=5; i++){
-                JSONObject resultListSub = new JSONObject();
-                resultListSub.put("areaId", i);
-                JSONArray result = new JSONArray();
-                TestArea testArea = testAreaArray.get(i-1);
-                for(int j = 0; j<6; j++) {
-                    JSONObject resultSub = new JSONObject();
-                    resultSub.put("id", j);
-                    resultSub.put("index", i);
-                    resultSub.put("value", testArea.getRespuestas(j+1));
-                    result.put(resultSub);
-                }
-                resultListSub.put("results", result);
-                resultList.put(resultListSub);
-            }
-            postparams.put("resultList", resultList);
-
-
-            JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, postparams,
-                    new Response.Listener<JSONObject>()
-                    {
-                        @Override
-                        public void onResponse(JSONObject response) {
-
-                            Log.d("Response", response.toString());
-                            Toast.makeText(RegistrarResultadosActivity.this, "Resultados cargados", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    },
-                    new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // error
-                            if (error == null) {
-                                Log.d("Error.Response", "Null error");
-                                return;
-                            }
-                            else if (error.networkResponse == null) {
-                                Toast.makeText(getApplicationContext(), "El profesor no tiene estudiantes asociados.", Toast.LENGTH_SHORT).show();
-                                Log.d("Error.Response", "Null Network Response");
-                                Log.d("Error.Response", error.toString());
-                                return;
-                            }
-                            Log.d("Error.Response", error.toString());
-
-                            String msg = "Error: ";
-                            assert getCurrentFocus() != null;
-                            switch(error.networkResponse.statusCode) {
-                                default:
-                                    msg += "desconocido";
-                                    break;
-                            }
-                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                            Log.d("pip" , "Error: " + error
+                                    + "\nStatus Code " + error.networkResponse.statusCode
+                                    + "\nResponse Data " + error.networkResponse.data
+                                    + "\nCause " + error.getCause()
+                                    + "\nmessage" + error.getMessage());
                         }
                     }
             ) {
@@ -331,13 +173,152 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
                     headers.put("Authorization",authorization);
                     return headers;
                 }
+
+                @Override
+                public String getBodyContentType() {
+                    return "application/json; charset=utf-8";
+                }
+
+                @Override
+                public byte[] getBody() throws AuthFailureError {
+                    try {
+                        return mRequestBody == null ? null : mRequestBody.getBytes("utf-8");
+                    } catch (UnsupportedEncodingException uee) {
+                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
+                        return null;
+                    }
+                }
+
+                @Override
+                protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                    String responseString = "";
+                    if (response != null) {
+                        responseString = new String(response.data);
+                    }
+                    return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
+                }
             };
 
             Log.d("PostRequest", postRequest.toString());
+            Log.d("PostRequest", new String(postRequest.getBody()));
+            Log.d("PostRequest", postRequest.getHeaders().toString());
+            Log.d("PostRequest", postRequest.getBodyContentType());
             queue.add(postRequest);
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (AuthFailureError authFailureError) {
+            authFailureError.printStackTrace();
         }
+    }
+
+
+    public void addResult(String attendanceId){
+        prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
+        final String userName = prefs.getString("DNI",null);
+        String url = ConfigConstants.getInstance().getAPI_URL() + "Result/AddResults";
+        JSONObject loginData = null;
+
+
+
+        try {
+            final JSONObject userInfo = new JSONObject(prefs.getString("UserInfo", null));
+            final int uid = userInfo.getInt("uid");
+            loginData = new JSONObject(prefs.getString("LoginData", null));
+            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
+            Log.d("Authorization: ",authorization);
+
+            JSONObject postparams = new JSONObject();
+            postparams.put("attendanceId", attendanceId);
+            JSONArray resultList = new JSONArray();
+            for(int i = 1; i<=5; i++){
+                JSONObject resultListSub = new JSONObject();
+                resultListSub.put("areaId", i);
+                JSONArray result = new JSONArray();
+                TestArea testArea = testAreaArray.get(i-1);
+                for(int j = 1; j<=6; j++) {
+                    JSONObject resultSub = new JSONObject();
+                    resultSub.put("index", j);
+                    resultSub.put("value", testArea.getRespuestas(j));
+                    result.put(resultSub);
+                }
+                resultListSub.put("results", result);
+                resultList.put(resultListSub);
+            }
+            postparams.put("resultList", resultList);
+
+            final String mRequestBody = postparams.toString();
+
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>()
+                    {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(RegistrarResultadosActivity.this, "Resultados ingresados: " + response, Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    },
+                    new Response.ErrorListener()
+                    {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(RegistrarResultadosActivity.this, "Error ingresando Resultados", Toast.LENGTH_SHORT).show();
+                            if(error.networkResponse.statusCode == 400)
+                                Toast.makeText(RegistrarResultadosActivity.this, "Registro ya existente", Toast.LENGTH_SHORT).show();
+
+                            Log.d("pip" , "Error: " + error
+                                    + "\nStatus Code " + error.networkResponse.statusCode
+                                    + "\nResponse Data " + error.networkResponse.data
+                                    + "\nCause " + error.getCause()
+                                    + "\nmessage" + error.getMessage());
+                        }
+                    }
+            ) {
+
+                @Override
+                public Map<String, String> getHeaders() {
+                    Map<String,String> headers=new HashMap<>();
+                    headers.put("accept","application/json");
+                    headers.put("Content-Type","application/json");
+                    headers.put("Authorization",authorization);
+                    return headers;
+                }
+
+                @Override
+                public String getBodyContentType() {
+                    return "application/json; charset=utf-8";
+                }
+
+                @Override
+                public byte[] getBody() throws AuthFailureError {
+                    try {
+                        return mRequestBody == null ? null : mRequestBody.getBytes("utf-8");
+                    } catch (UnsupportedEncodingException uee) {
+                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
+                        return null;
+                    }
+                }
+
+                @Override
+                protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                    String responseString = "";
+                    if (response != null) {
+                        responseString = String.valueOf(response.statusCode);
+                    }
+                    return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
+                }
+            };
+
+            Log.d("PostRequest", postRequest.toString());
+            Log.d("PostRequest", new String(postRequest.getBody()));
+            Log.d("PostRequest", postRequest.getHeaders().toString());
+            Log.d("PostRequest", postRequest.getBodyContentType());
+            queue.add(postRequest);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (AuthFailureError authFailureError) {
+            authFailureError.printStackTrace();
+        }
+
     }
 
     public void onBtnCancelarClick(View view) {
