@@ -44,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="false"
+                    android:onClick="startRegistrarResultadosActivity"
                     android:orientation="vertical"
                     android:visibility="visible"
                     android:weightSum="3">

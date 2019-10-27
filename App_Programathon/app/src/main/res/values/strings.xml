@@ -44,6 +44,14 @@
     <string name="CicloDesarrollo_btnConsultResults">Consultar Resultados Historicos ASQ-3</string>
     <string name="CicloDesarrollo_btnConsultPlanes">Consultar Planes de Accion</string>
 
+    <!-- REGISTRAR RESULTADOS -->
+    <string name="RegistrarResults_title">Registrar Resultados de ASQ-3</string>
+    <string name="RegistrarResults_fechaApl">Fecha de aplicacion:</string>
+    <string name="RegistrarResults_formName">Nombre de cuestionario:</string>
+    <string name="RegistrarResults_areas">Areas de cuestionario:</string>
+    <string name="RegistrarResults_btnCancelar">Cancelar</string>
+    <string name="RegistrarResults_btnGuardar">Guardar</string>
+
     <!-- TEST AREA LAYOUT -->
     <string name="TestArea_pregunta1">Pregunta 1:</string>
     <string name="TestArea_pregunta2">Pregunta 2:</string>
