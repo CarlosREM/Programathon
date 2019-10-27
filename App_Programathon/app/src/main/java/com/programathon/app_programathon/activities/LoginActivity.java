@@ -32,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,8 +42,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText login_txtUsername;
     private EditText login_txtPassword;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

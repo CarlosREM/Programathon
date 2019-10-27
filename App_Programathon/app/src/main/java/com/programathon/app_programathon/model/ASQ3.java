@@ -1,5 +1,8 @@
 package com.programathon.app_programathon.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ASQ3 {
     private int id;
     private String name;
@@ -7,6 +10,7 @@ public class ASQ3 {
     private int maxMonths;
     private int minDays;
     private int maxDays;
+    private List<formArea> areas;
 
     public ASQ3(int id, String name, int minMonths, int maxMonths, int minDays, int maxDays) {
         this.id = id;
@@ -15,6 +19,7 @@ public class ASQ3 {
         this.maxMonths = maxMonths;
         this.minDays = minDays;
         this.maxDays = maxDays;
+        areas = new ArrayList<>();
     }
 
     public int getId() {
@@ -63,5 +68,13 @@ public class ASQ3 {
 
     public void setMaxDays(int maxDays) {
         this.maxDays = maxDays;
+    }
+
+    public List<formArea> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(List<formArea> areas) {
+        this.areas = areas;
     }
 }

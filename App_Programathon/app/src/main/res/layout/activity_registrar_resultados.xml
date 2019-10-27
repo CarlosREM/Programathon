@@ -19,6 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:onClick="onBtnConsultarClick"
                 android:text="@string/MenuNormalUser_ConsultarFormulario"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +32,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="32dp"
+                android:onClick="onBtnCancelarClick"
                 android:text="@string/RegistrarResults_btnCancelar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +45,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="32dp"
+                android:onClick="onBtnGuardarClick"
                 android:text="@string/RegistrarResults_btnGuardar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
@@ -74,8 +78,9 @@
                 <LinearLayout
                     android:id="@+id/RegistrarResults_layoutAreas"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible" />
             </HorizontalScrollView>
 
             <TextView

@@ -1,6 +1,7 @@
 package com.programathon.app_programathon.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,11 +28,10 @@ public class TestArea extends ConstraintLayout {
 
     int minValue, maxValue;
 
-    public TestArea(Context context, String title, int minValue, int maxValue) {
+    public TestArea(Context context, String title, String minValue, String maxValue) {
         super(context);
-
-        this.minValue = minValue;
-        this.maxValue = maxValue;
+        this.minValue = (int) Float.parseFloat(minValue);
+        this.maxValue = (int) Float.parseFloat(maxValue);
 
         init(context, title);
 
@@ -103,8 +103,33 @@ public class TestArea extends ConstraintLayout {
         return stateIconColor;
     }
 
-    public int getTotal() {
-        return Integer.parseInt(txtTotal.getText().toString());
+    public String getRespuestas(int num) {
+        String respuesta = "";
+        switch(num) {
+            case 1:
+                respuesta = (String) spnRespuesta1.getSelectedItem();
+                break;
+            case 2:
+                respuesta = (String) spnRespuesta2.getSelectedItem();
+                break;
+            case 3:
+                respuesta = (String) spnRespuesta3.getSelectedItem();
+                break;
+            case 4:
+                respuesta = (String) spnRespuesta4.getSelectedItem();
+                break;
+            case 5:
+                respuesta = (String) spnRespuesta5.getSelectedItem();
+                break;
+            case 6:
+                respuesta = (String) spnRespuesta6.getSelectedItem();
+                break;
+        }
+        return respuesta;
+    }
+
+    public String getTotal() {
+        return txtTotal.getText().toString();
     }
 
 

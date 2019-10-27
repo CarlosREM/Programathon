@@ -78,6 +78,7 @@ public class TestCalculator {
                                     e.printStackTrace();
                                 }
                             }
+                            loadAreas(context);
                         }
                     },
                     new Response.ErrorListener()
@@ -117,6 +118,83 @@ public class TestCalculator {
             };
             Log.d("GetRequest", getRequest.toString());
             queue.add(getRequest);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadAreas(final Context context){
+        SharedPreferences prefs;
+        prefs = context.getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
+        final String userName = prefs.getString("DNI",null);
+        JSONObject loginData = null;
+        try {
+            loginData = new JSONObject(prefs.getString("LoginData", null));
+            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
+            Log.d("Authorization: ",authorization);
+
+            for(int i = 0; i < TestCalculator.getInstance().questionaries.size(); i++) {
+                String url = ConfigConstants.getInstance().getAPI_URL() + "Areas/GetAreaLimitsByFormId?formId="
+                            +TestCalculator.getInstance().questionaries.get(i).getId();
+                final ASQ3 t = TestCalculator.getInstance().questionaries.get(i);
+                JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                        new Response.Listener<JSONArray>()
+                        {
+                            @Override
+                            public void onResponse(JSONArray response) {
+
+                                ArrayList<formArea> temp = new ArrayList<>();
+                                for(int i=0; i< response.length(); i++) {
+                                    try {
+                                        JSONObject object = response.getJSONObject(i);
+                                        formArea area = new formArea(object.getString("formId"), object.getString("areaId"), object.getString("minValue"), object.getString("maxValue"));
+                                        temp.add(area);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                t.setAreas(temp);
+                            }
+                        },
+                        new Response.ErrorListener()
+                        {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // error
+                                if (error == null) {
+                                    Log.d("Error.Response", "Null error");
+                                    return;
+                                }
+                                else if (error.networkResponse == null) {
+                                    Toast.makeText(context, "El profesor no tiene estudiantes asociados.", Toast.LENGTH_SHORT).show();
+                                    Log.d("Error.Response", "Null Network Response");
+                                    Log.d("Error.Response", error.toString());
+                                    return;
+                                }
+                                Log.d("Error.Response", error.toString());
+
+                                String msg = "Error: ";
+                                switch(error.networkResponse.statusCode) {
+                                    default:
+                                        msg += "desconocido";
+                                        break;
+                                }
+                                Toast.makeText(context, "No se pudieron cargar los ASQ-3.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                ) {
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        Map<String,String> headers=new HashMap<>();
+                        headers.put("accept","application/json");
+                        headers.put("Authorization",authorization);
+                        return headers;
+                    }
+                };
+                Log.d("GetRequest", getRequest.toString());
+                queue.add(getRequest);
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
