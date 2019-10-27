@@ -24,7 +24,9 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
+import com.programathon.app_programathon.model.TestCalculator;
 
+import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,11 +39,17 @@ public class MenuNormalUserActivity extends AppCompatActivity {
 
     TextView usernameToolbar;
     private RequestQueue queue;
+    private static boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_normal_user);
+
+        if(!flag) {
+            flag = true;
+            TestCalculator.getInstance().loadData(this);
+        }
 
         this.queue = Volley.newRequestQueue(this);
 
@@ -144,6 +152,10 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                 .setNegativeButton("Cancelar", dialogInterface).show();
     }
 
-
+    public void prueba(View view){
+        TestCalculator calculator = TestCalculator.getInstance();
+        String form = calculator.calculateDatesDiff("2016-12-30",null);
+        Log.d("Formulario", form);
+    }
 
 }

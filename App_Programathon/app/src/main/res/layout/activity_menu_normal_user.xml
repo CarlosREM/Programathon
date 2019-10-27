@@ -100,9 +100,11 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/consultar"
                     android:layout_width="match_parent"
                     android:layout_height="137dp"
                     android:layout_weight="1"
+                    android:onClick="prueba"
                     android:orientation="vertical"
                     android:weightSum="3">
 
