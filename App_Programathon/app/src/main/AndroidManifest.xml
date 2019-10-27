@@ -17,17 +17,15 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity android:name=".activities.RegistrarResultadosActivity" />
+        <activity android:name=".activities.PlanAccionActivity" />
         <activity android:name=".activities.CicloDesarrolloIntegral" />
         <activity android:name=".activities.ListaEstudiantesActivity" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.MenuNormalUserActivity" />
     </application>
-
-
 </manifest>

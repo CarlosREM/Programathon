@@ -19,18 +19,15 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
 import com.programathon.app_programathon.model.TestCalculator;
 
-import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +58,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
             String user = userInfo.getString("givenName") + " - " + userInfo.getString("role");
             usernameToolbar.setText(user);
             if(userInfo.getString("role").equals("Profesor")) {
-                LinearLayout layoutButton = findViewById(R.id.layoutListarAsociados);
+                LinearLayout layoutButton = findViewById(R.id.Login_btnListarAsociados);
                 layoutButton.setClickable(true);
             }
 

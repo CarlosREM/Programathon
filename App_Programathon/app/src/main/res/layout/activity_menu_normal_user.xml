@@ -4,28 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".activities.MenuNormalUserActivity">
 
-    <Button
-        android:id="@+id/buttonCerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/colorWhite"
-        android:fontFamily="@font/multicolore"
-        android:onClick="salirMensaje"
-        android:text="@string/btnSalir"
-        android:textColor="@color/colorBlack"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="64dp"
+        android:layout_weight="3"
+        android:alpha="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:srcCompat="@drawable/logo_dehvi_04" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/Login_btnListarAsociados"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="checkForStudents"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/imageViewLista"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1.5"
+                android:src="@drawable/view_list"
+                android:tint="@color/colorGreen"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textViewLista"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
+                android:fontFamily="@font/quicksand"
+                android:gravity="center"
+                android:text="@string/MenuNormalUser_VerLista"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Menu_btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="salirMensaje"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/imageViewLogout"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1.5"
+                android:src="@drawable/ic_circle_x"
+                android:tint="@color/colorPurple" />
+
+            <TextView
+                android:id="@+id/textViewLogout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"
+                android:fontFamily="@font/quicksand"
+                android:gravity="center"
+                android:text="@string/MenuNormalUser_CerrarSesion"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#2a737b"
-        android:backgroundTint="@color/colorBlue"
+        android:background="@color/colorBlue"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,104 +126,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/multicolore"
+            android:textColor="@color/colorWhite"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="18dp"
             tools:text="TextView" />
 
 
     </Toolbar>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="3"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <LinearLayout
-                    android:id="@+id/layoutListarAsociados"
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:layout_weight="1"
-                    android:clickable="false"
-                    android:onClick="checkForStudents"
-                    android:orientation="vertical"
-                    android:visibility="visible"
-                    android:weightSum="3">
-
-                    <ImageView
-                        android:id="@+id/imageViewLista"
-                        android:layout_width="50dp"
-                        android:layout_height="7dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1.5"
-                        android:src="@drawable/view_list"
-                        android:visibility="visible" />
-
-                    <TextView
-                        android:id="@+id/textViewLista"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="@string/MenuNormalUser_VerLista"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/consultar"
-                    android:layout_width="match_parent"
-                    android:layout_height="137dp"
-                    android:layout_weight="1"
-                    android:onClick="prueba"
-                    android:orientation="vertical"
-                    android:weightSum="3">
-
-                    <ImageView
-                        android:id="@+id/imageViewForms"
-                        android:layout_width="50dp"
-                        android:layout_height="7dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1.5"
-                        android:src="@drawable/search" />
-
-                    <TextView
-                        android:id="@+id/textViewForms"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="@string/MenuNormalUser_ConsultarFormulario"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

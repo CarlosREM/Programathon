@@ -32,7 +32,7 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta6"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta5" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta5" />
 
     <Spinner
         android:id="@+id/TestArea_spnRespuesta5"
@@ -45,7 +45,7 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta5"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta4" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta4" />
 
     <Spinner
         android:id="@+id/TestArea_spnRespuesta4"
@@ -58,7 +58,7 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta4"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta3" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta3" />
 
     <Spinner
         android:id="@+id/TestArea_spnRespuesta3"
@@ -71,7 +71,7 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta3"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta2" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta2" />
 
     <Spinner
         android:id="@+id/TestArea_spnRespuesta2"
@@ -84,7 +84,7 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TestArea_txtPregunta2"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta1" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta1" />
 
     <Spinner
         android:id="@+id/TestArea_spnRespuesta1"
@@ -105,7 +105,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
         android:text="@string/TestArea_estado"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
         android:text="@string/TestArea_pregunta6"
+        android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta5" />
@@ -128,7 +132,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
         android:text="@string/TestArea_pregunta5"
+        android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta4" />
@@ -139,7 +145,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
         android:text="@string/TestArea_pregunta4"
+        android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta3" />
@@ -150,7 +158,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
         android:text="@string/TestArea_pregunta3"
+        android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta2" />
@@ -161,7 +171,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand"
         android:text="@string/TestArea_pregunta2"
+        android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta1" />
@@ -173,15 +185,18 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/TestArea_pregunta1"
+        android:textColor="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtTitulo"
+        android:fontFamily="@font/quicksand" />
 
     <TextView
         android:id="@+id/TestArea_txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/multicolore"
         android:textAlignment="center"
         android:textColor="@color/colorPurple"
         android:textSize="24sp"
@@ -195,9 +210,11 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/multicolore"
         android:text="@string/TestArea_total"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -210,11 +227,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:fontFamily="@font/multicolore"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/TestArea_spnRespuesta6"
+        app:layout_constraintTop_toBottomOf="@+id/TestArea_txtPregunta6"
         tools:text="0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,9 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:fontFamily="@font/quicksand"
             android:paddingTop="12sp"
             android:paddingBottom="12sp"
             android:textAlignment="center"
+            android:textColor="@color/colorBlack"
             android:textSize="18sp"
             tools:text="Columna 1" />
 
@@ -37,9 +39,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:fontFamily="@font/quicksand"
             android:paddingTop="12sp"
             android:paddingBottom="12sp"
             android:textAlignment="center"
+            android:textColor="@color/colorBlack"
             android:textSize="18sp"
             tools:text="Columna 2" />
 

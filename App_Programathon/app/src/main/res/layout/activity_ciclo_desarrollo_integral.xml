@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:context=".activities.CicloDesarrolloIntegral">
 
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:background="#2a737b"
         android:backgroundTint="@color/colorBlue"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,9 +38,9 @@
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="96dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="96dp"
                 android:layout_weight="1"
                 android:baselineAligned="false"
                 android:orientation="horizontal"
@@ -43,51 +54,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:clickable="false"
                     android:onClick="startRegistrarResultadosActivity"
                     android:orientation="vertical"
                     android:visibility="visible"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/view_list"
+                        android:src="@drawable/ic_add"
+                        android:tint="@color/colorBlue"
                         android:visibility="visible" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand"
                         android:gravity="center"
                         android:text="@string/CicloDesarrollo_btnRegistrarResult"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/CrearPlan_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="3">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:src="@drawable/ic_add" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/CicloDesarrollo_btnCrearPlanAccion"
                         android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -108,17 +98,19 @@
                 android:weightSum="2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout1" >
 
                 <LinearLayout
                     android:id="@+id/ListaASQ_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:clickable="false"
                     android:orientation="vertical"
                     android:visibility="visible"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="50dp"
@@ -126,12 +118,14 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/view_list"
+                        android:tint="@color/colorGreen"
                         android:visibility="visible" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand"
                         android:gravity="center"
                         android:text="@string/MenuNormalUser_ListarCuestionarios"
                         android:textSize="15sp"
@@ -144,19 +138,25 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    >
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/search" />
+                        android:src="@drawable/ic_edit"
+                        android:tint="@color/colorGreen" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand"
                         android:gravity="center"
                         android:text="@string/CicloDesarrollo_btnEditarResults"
                         android:textSize="15sp"
@@ -188,23 +188,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:clickable="false"
                     android:orientation="vertical"
                     android:visibility="visible"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/view_list"
+                        android:src="@drawable/search"
+                        android:tint="@color/colorPurple"
                         android:visibility="visible" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand"
                         android:gravity="center"
                         android:text="@string/CicloDesarrollo_btnConsultResults"
                         android:textSize="15sp"
@@ -217,19 +221,24 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/search" />
+                        android:src="@drawable/search"
+                        android:tint="@color/colorPurple" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand"
                         android:gravity="center"
                         android:text="@string/MenuNormalUser_ConsultPlanesAccion"
                         android:textSize="15sp"
@@ -239,18 +248,19 @@
 
             </LinearLayout>
 
-            <View
-                android:id="@+id/separator2"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="48dp"
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="48dp"
-                android:background="@android:color/darker_gray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:fontFamily="@font/multicolore"
+                android:text="@string/CicloDesarrollo_infoHeader"
+                android:textColor="@color/colorPurple"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/CicloDesarrollo_txtSection" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/lblsection"
@@ -258,7 +268,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_section"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -271,6 +283,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -285,6 +299,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -298,7 +314,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_classYear"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -311,6 +329,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -324,7 +344,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_status"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -336,7 +358,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_joinDate"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -349,6 +373,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -362,7 +388,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_earlyBirth"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -375,6 +403,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -389,6 +419,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -403,6 +435,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -416,7 +450,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_gender"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -428,24 +464,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_dob"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lblGender" />
-
-            <TextView
-                android:id="@+id/txtTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/CicloDesarrollo_title"
-                android:textAlignment="center"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/lblName"
@@ -453,11 +478,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/CicloDesarrollo_nombre"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
                 android:id="@+id/CicloDesarrollo_txtName"
@@ -466,10 +493,12 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lblName"
-                app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
                 tools:text="nombre del estudiante" />
 
             <TextView
@@ -478,11 +507,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/multicolore"
                 android:text="@string/CicloDesarrollo_claseHeader"
+                android:textColor="@color/colorPurple"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator1" />
+
+            <View
+                android:id="@+id/separator2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="48dp"
+                android:background="@color/colorGreen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/CicloDesarrollo_txtSection" />
 
             <View
                 android:id="@+id/separator1"
@@ -491,7 +535,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="48dp"
-                android:background="@android:color/darker_gray"
+                android:background="@color/colorGreen"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -500,4 +544,20 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/multicolore"
+        android:text="@string/CicloDesarrollo_title"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
