@@ -53,7 +53,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
             JSONObject userInfo = new JSONObject(prefs.getString("UserInfo", null));
             String user = userInfo.getString("givenName") + " - " + userInfo.getString("role");
             usernameToolbar.setText(user);
-            if(userInfo.getString("role").equals("Profesor")){
+            if(userInfo.getString("role").equals("Profesor")) {
                 LinearLayout layoutButton = findViewById(R.id.layoutListarAsociados);
                 layoutButton.setClickable(true);
             }
@@ -77,6 +77,11 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                     {
                         @Override
                         public void onResponse(JSONArray response) {
+
+                            Intent i = new Intent(getBaseContext(), ListaEstudiantesActivity.class);
+                            i.putExtra("myStudents", response.toString());
+                            startActivity(i);
+
                             Log.d("Response", response.toString());
 
                         }
