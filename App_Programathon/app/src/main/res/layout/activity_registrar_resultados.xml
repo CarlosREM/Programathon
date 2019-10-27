@@ -28,19 +28,6 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha de aplicacion:" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
-
-        <TextView
             android:id="@+id/textView3"
             android:layout_width="166dp"
             android:layout_height="wrap_content"
@@ -64,7 +51,7 @@
             android:layout_width="183dp"
             android:layout_height="95dp"
             android:layout_marginLeft="100dp"
-            app:numberOfDots="5"
+            app:numberOfDots="7"
             app:selectedDotColor="@color/colorBlue"
             app:selectedDotIndex="0"
             app:unselectedDotColor="@color/colorBlue" />

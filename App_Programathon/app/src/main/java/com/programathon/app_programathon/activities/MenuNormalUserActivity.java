@@ -21,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.snackbar.Snackbar;
 import com.programathon.app_programathon.R;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
 import com.programathon.app_programathon.model.TestCalculator;
@@ -61,7 +60,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
             JSONObject userInfo = new JSONObject(prefs.getString("UserInfo", null));
             String user = userInfo.getString("givenName") + " - " + userInfo.getString("role");
             usernameToolbar.setText(user);
-            if(userInfo.getString("role").equals("Profesor")){
+            if(userInfo.getString("role").equals("Profesor")) {
                 LinearLayout layoutButton = findViewById(R.id.layoutListarAsociados);
                 layoutButton.setClickable(true);
             }
@@ -85,6 +84,11 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                     {
                         @Override
                         public void onResponse(JSONArray response) {
+
+                            Intent i = new Intent(getBaseContext(), ListaEstudiantesActivity.class);
+                            i.putExtra("myStudents", response.toString());
+                            startActivity(i);
+
                             Log.d("Response", response.toString());
 
                         }
@@ -112,7 +116,7 @@ public class MenuNormalUserActivity extends AppCompatActivity {
                                     msg += "desconocido";
                                     break;
                             }
-                            Snackbar.make(getCurrentFocus(), msg, Snackbar.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                         }
                     }
             ) {

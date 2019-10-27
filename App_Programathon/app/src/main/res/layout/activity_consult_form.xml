@@ -58,7 +58,7 @@
         tools:text="Se usa la fecha actual como fecha de aplicacion" />
 
     <View
-        android:id="@+id/separator"
+        android:id="@+id/separator1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="64dp"
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separator">
+        app:layout_constraintTop_toBottomOf="@+id/separator1">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -88,7 +88,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/ListaEstudiantes_header1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -98,7 +98,7 @@
                 tools:text="Columna 1" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/ListaEstudiantes_header2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

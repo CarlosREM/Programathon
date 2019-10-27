@@ -20,5 +20,31 @@
 
     <string name="btnSalir">Salir</string>
 
+    <!-- LISTA ESTUDIANTES -->
+    <string name="ListaEstudiantes_title">Lista de Estudiantes</string>
+    <string name="ListaEstudiantes_subtitle">Click en un nombre para ver detalles</string>
+    <string name="ListaEstudiantes_header1">Nombre</string>
+    <string name="ListaEstudiantes_header2">ASQ-3</string>
+
+    <!-- CICLO DESARROLLO -->
+    <string name="CicloDesarrollo_title">Ciclo de Desarrollo Integral</string>
+    <string name="CicloDesarrollo_nombre">Nombre:</string>
+    <string name="CicloDesarrollo_dob">Fecha Nacimiento:</string>
+    <string name="CicloDesarrollo_gender">Género:</string>
+    <string name="CicloDesarrollo_joinDate">Fecha Ingreso:</string>
+    <string name="CicloDesarrollo_earlyBirth">Semanas prematuras:</string>
+    <string name="CicloDesarrollo_classYear">Año:</string>
+    <string name="CicloDesarrollo_section">Sección:</string>
+    <string name="CicloDesarrollo_status">Status:</string>
+    <string name="CicloDesarrollo_claseHeader">Info. de Clase</string>
+    <string name="CicloDesarrollo_btnRegistrarResult">Registrar Resultado ASQ-3</string>
+    <string name="CicloDesarrollo_btnCrearPlanAccion">Crear Plan de Accion</string>
+    <string name="CicloDesarrollo_btnMostrarLista">Mostrar Lista ASQ-3 Registrados</string>
+    <string name="CicloDesarrollo_btnEditarResults">Editar Resultados ASQ-3</string>
+    <string name="CicloDesarrollo_btnConsultResults">Consultar Resultados Historicos ASQ-3</string>
+    <string name="CicloDesarrollo_btnConsultPlanes">Consultar Planes de Accion</string>
+
+
+
 
 </resources>
