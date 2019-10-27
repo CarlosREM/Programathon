@@ -33,11 +33,12 @@
             android:layout_height="wrap_content"
             android:text="Fecha de aplicacion:" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="116dp"
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:ems="10"
+            android:inputType="date" />
 
         <TextView
             android:id="@+id/textView3"
