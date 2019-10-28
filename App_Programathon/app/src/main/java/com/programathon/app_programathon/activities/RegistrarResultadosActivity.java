@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -32,6 +33,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.programathon.app_programathon.R;
+import com.programathon.app_programathon.model.TestAreaModel;
 import com.programathon.app_programathon.model.formArea;
 import com.programathon.app_programathon.view.TestArea;
 import com.programathon.app_programathon.globalconfig.ConfigConstants;
@@ -88,12 +90,13 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
             List<formArea> formAreaArray = form.getAreas();
             LinearLayout layoutAreas = findViewById(R.id.RegistrarResults_layoutAreas);
             TestArea testArea;
-            Log.d("formAreaArray length", String.valueOf(formAreaArray.size()));
+            testAreaArray = new ArrayList<>();
             for (formArea area : formAreaArray) {
                 testArea = new TestArea(RegistrarResultadosActivity.this, area.getName(), area.getMinValue(), area.getMaxValue());
                 testAreaArray.add(testArea);
                 layoutAreas.addView(testArea);
             }
+            (findViewById(R.id.RegistrarResults_btnGuardar)).setVisibility(View.VISIBLE);
         }
         catch (JSONException e) {
             e.printStackTrace();
@@ -101,6 +104,13 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
     }
 
     public void onBtnGuardarClick(View view){
+
+        for (TestArea testArea: testAreaArray) {
+            if (testArea.checkEmpty()) {
+                Toast.makeText(RegistrarResultadosActivity.this, "Una o más respuestas esta vacía.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
 
         prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
         final String userName = prefs.getString("DNI",null);
@@ -253,8 +263,10 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
                     {
                         @Override
                         public void onResponse(String response) {
-                            Toast.makeText(RegistrarResultadosActivity.this, "Resultados ingresados: " + response, Toast.LENGTH_SHORT).show();
-                            finish();
+
+                            Log.d("Response", response.toString());
+                            Toast.makeText(RegistrarResultadosActivity.this, "Resultados cargados", Toast.LENGTH_SHORT).show();
+                            checkPlanAccion();
                         }
                     },
                     new Response.ErrorListener()
@@ -319,6 +331,48 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
             authFailureError.printStackTrace();
         }
 
+    }
+
+    public void temp(View view) {
+        checkPlanAccion();
+    }
+
+    private void checkPlanAccion() {
+        boolean allVerde = true, noEmpty = true;
+        final ArrayList<TestAreaModel> testAreaModels = new ArrayList<>();
+        for (TestArea testArea : testAreaArray) {
+            if (testArea.checkEmpty()) {
+                noEmpty = false;
+                break;
+            }
+            if (!testArea.isVerde())
+                allVerde = false;
+            testAreaModels.add(testArea.getModel());
+        }
+        if (noEmpty && !allVerde) {
+            DialogInterface.OnClickListener dialogInterface = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch(which){
+                        case DialogInterface.BUTTON_POSITIVE:
+                            Intent i = new Intent(getApplicationContext(), PlanAccionActivity.class);
+                            i.putExtra("testAreaModels", testAreaModels);
+                            i.putExtra("studentInfo", studentInfo.toString());
+                            i.putExtra("formName", txtForm.getText().toString());
+                            startActivity(i);
+                            break;
+
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            break;
+
+                    }
+                }
+            };
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("¿Desea crear un Plan de Accion?")
+                    .setPositiveButton("Si", dialogInterface)
+                    .setNegativeButton("No", dialogInterface).show();
+        }
     }
 
     public void onBtnCancelarClick(View view) {

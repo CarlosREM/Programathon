@@ -380,7 +380,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/lbljoinDate"
                 app:layout_constraintTop_toBottomOf="@+id/CicloDesarrollo_txtEarlyBirth"
-                tools:text="dd/mm/yyyy" />
+                tools:text="@string/dateTemplate" />
 
             <TextView
                 android:id="@+id/lblearlyBirth"
@@ -442,7 +442,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/lblDob"
                 app:layout_constraintTop_toBottomOf="@+id/CicloDesarrollo_txtGender"
-                tools:text="dd/mm/yyyy" />
+                tools:text="@string/dateTemplate" />
 
             <TextView
                 android:id="@+id/lblGender"

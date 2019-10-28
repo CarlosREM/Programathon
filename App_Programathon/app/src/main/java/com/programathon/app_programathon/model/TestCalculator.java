@@ -284,6 +284,12 @@ public class TestCalculator {
         return null;
     }
 
-
+    public ASQ3 getFormByName(String name) {
+        for (ASQ3 form : this.questionaries) {
+            if (form.getName().equals(name))
+                return form;
+        }
+        return null;
+    }
 
 }

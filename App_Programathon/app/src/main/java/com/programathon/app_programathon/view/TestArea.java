@@ -1,7 +1,6 @@
 package com.programathon.app_programathon.view;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,9 +10,9 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
 import com.programathon.app_programathon.R;
+import com.programathon.app_programathon.model.TestAreaModel;
 
 public class TestArea extends ConstraintLayout {
 
@@ -26,7 +25,9 @@ public class TestArea extends ConstraintLayout {
     private TextView txtTotal;
     private ImageView imgState;
 
-    int minValue, maxValue;
+    private int minValue, maxValue;
+    private boolean verde = false;
+
 
     public TestArea(Context context, String title, String minValue, String maxValue) {
         super(context);
@@ -76,17 +77,27 @@ public class TestArea extends ConstraintLayout {
     }
 
     private void updateTotal() {
-        int respuesta1 = Integer.parseInt((String) spnRespuesta1.getSelectedItem());
-        int respuesta2 = Integer.parseInt((String) spnRespuesta2.getSelectedItem());
-        int respuesta3 = Integer.parseInt((String) spnRespuesta3.getSelectedItem());
-        int respuesta4 = Integer.parseInt((String) spnRespuesta4.getSelectedItem());
-        int respuesta5 = Integer.parseInt((String) spnRespuesta5.getSelectedItem());
-        int respuesta6 = Integer.parseInt((String) spnRespuesta6.getSelectedItem());
+        int total = 0;
+        if (!spnRespuesta1.getSelectedItem().equals("."))
+            total += Integer.parseInt((String) spnRespuesta1.getSelectedItem());
 
-        int total = respuesta1 + respuesta2 + respuesta3 + respuesta4 + respuesta5 + respuesta6;
+        if (!spnRespuesta2.getSelectedItem().equals("."))
+            total += Integer.parseInt((String) spnRespuesta2.getSelectedItem());
+
+        if (!spnRespuesta3.getSelectedItem().equals("."))
+            total += Integer.parseInt((String) spnRespuesta3.getSelectedItem());
+
+        if (!spnRespuesta4.getSelectedItem().equals("."))
+            total += Integer.parseInt((String) spnRespuesta4.getSelectedItem());
+
+        if (!spnRespuesta5.getSelectedItem().equals("."))
+            total += Integer.parseInt((String) spnRespuesta5.getSelectedItem());
+
+        if (!spnRespuesta6.getSelectedItem().equals("."))
+            total += Integer.parseInt((String) spnRespuesta6.getSelectedItem());
+
 
         txtTotal.setText(String.valueOf(total));
-
 
         int colorID = getStateIconColorID(total);
 
@@ -94,13 +105,24 @@ public class TestArea extends ConstraintLayout {
     }
 
     private int getStateIconColorID(int totalValue) {
+        verde = false;
         int stateIconColor = R.color.testIconYellow;
         if (totalValue < minValue)
             stateIconColor = R.color.testIconRed;
-        else if (maxValue < totalValue)
+        else if (maxValue < totalValue) {
             stateIconColor = R.color.testIconGreen;
-
+            verde = true;
+        }
         return stateIconColor;
+    }
+
+    public boolean checkEmpty() {
+        return spnRespuesta1.getSelectedItem().equals(".") |
+                spnRespuesta2.getSelectedItem().equals(".") |
+                spnRespuesta3.getSelectedItem().equals(".") |
+                spnRespuesta4.getSelectedItem().equals(".") |
+                spnRespuesta5.getSelectedItem().equals(".") |
+                spnRespuesta6.getSelectedItem().equals(".");
     }
 
     public String getRespuestas(int num) {
@@ -130,6 +152,31 @@ public class TestArea extends ConstraintLayout {
 
     public String getTotal() {
         return txtTotal.getText().toString();
+    }
+
+    public boolean isVerde() {
+        return verde;
+    }
+
+    public TestAreaModel getModel() {
+        String name = ((TextView) findViewById(R.id.TestArea_txtTitulo)).getText().toString();
+        int respuesta1 = Integer.parseInt(getRespuestas(1)),
+                respuesta2 = Integer.parseInt(getRespuestas(2)),
+                respuesta3 = Integer.parseInt(getRespuestas(3)),
+                respuesta4 = Integer.parseInt(getRespuestas(4)),
+                respuesta5 = Integer.parseInt(getRespuestas(5)),
+                respuesta6 = Integer.parseInt(getRespuestas(6)),
+                total = Integer.parseInt(getTotal());
+
+        return new TestAreaModel(name,
+                                 respuesta1,
+                                 respuesta2,
+                                 respuesta3,
+                                 respuesta4,
+                                 respuesta5,
+                                 respuesta6,
+                                 total,
+                                 verde);
     }
 
 
