@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         this.login_txtPassword = findViewById(R.id.login_txtPassword);
 
         verifyUserInternetConnection();
+
     }
 
     private void verifyUserInternetConnection() {

@@ -66,7 +66,11 @@ public class MenuNormalUserActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        try {
+            this.makeLoginRequest("1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public void checkForStudents(View view){

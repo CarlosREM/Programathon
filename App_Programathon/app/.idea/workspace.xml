@@ -10,9 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd8b7ae4-2791-4c2e-8464-44684a7b6af6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/model/TestCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/model/TestCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_registrar_resultados.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_registrar_resultados.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="255" column="43" selection-start-line="255" selection-start-column="43" selection-end-line="255" selection-end-column="43" />
+            <state relative-caret-position="1768">
+              <caret line="147" column="55" selection-start-line="147" selection-start-column="55" selection-end-line="147" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6789#6790#0" expanded="true" />
@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="107" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="236">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,8 +127,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="189" column="57" lean-forward="true" selection-start-line="189" selection-start-column="57" selection-end-line="189" selection-end-column="57" />
+            <state relative-caret-position="340">
+              <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/CicloDesarrolloIntegral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="65" column="67" lean-forward="true" selection-start-line="65" selection-start-column="67" selection-end-line="65" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,14 +176,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/model/ASQ3.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_menu_normal_user.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/test_area_layout.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/CicloDesarrolloIntegral.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/CrearPlanAccion.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_crear_plan_accion.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_registrar_resultados.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/model/TestCalculator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java" />
       </list>
     </option>
@@ -179,7 +191,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
-    <option name="width" value="1348" />
+    <option name="width" value="1349" />
     <option name="height" value="690" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -361,9 +373,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" sideWeight="0.4989429" visible="true" weight="0.22416107" />
+      <window_info content_ui="combo" id="Project" sideWeight="0.4989429" visible="true" weight="0.22416107" />
       <window_info id="Structure" side_tool="true" />
       <window_info id="Build Variants" side_tool="true" />
       <window_info id="Image Layers" />
@@ -381,7 +392,7 @@
       <window_info anchor="bottom" id="Terminal" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Find" />
-      <window_info anchor="bottom" id="Build" visible="true" weight="0.33002833" />
+      <window_info anchor="bottom" id="Build" weight="0.33002833" />
       <window_info anchor="right" id="Device File Explorer" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Gradle" />
@@ -508,16 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/CicloDesarrolloIntegral.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_crear_plan_accion.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -562,16 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -584,20 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="255" column="43" selection-start-line="255" selection-start-column="43" selection-end-line="255" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6789#6790#0" expanded="true" />
-            <element signature="e#6869#6870#0" expanded="true" />
-            <element signature="e#12256#12257#0" expanded="true" />
-            <element signature="e#12336#12337#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,10 +609,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/CicloDesarrolloIntegral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="65" column="67" lean-forward="true" selection-start-line="65" selection-start-column="67" selection-end-line="65" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/RegistrarResultadosActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="147" column="55" selection-start-line="147" selection-start-column="55" selection-end-line="147" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6789#6790#0" expanded="true" />
+            <element signature="e#6869#6870#0" expanded="true" />
+            <element signature="e#12256#12257#0" expanded="true" />
+            <element signature="e#12336#12337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programathon/app_programathon/activities/MenuNormalUserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="189" column="57" lean-forward="true" selection-start-line="189" selection-start-column="57" selection-end-line="189" selection-end-column="57" />
+        <state relative-caret-position="340">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="32" />
         </state>
       </provider>
     </entry>

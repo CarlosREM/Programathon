@@ -54,6 +54,7 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
 
     SharedPreferences prefs;
     private RequestQueue queue;
+    private String newAttendanceId;
 
     JSONObject studentInfo;
 
@@ -144,6 +145,7 @@ public class RegistrarResultadosActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(RegistrarResultadosActivity.this, "Attendance ingresado: " + response, Toast.LENGTH_SHORT).show();
+                            newAttendanceId = response;
                             addResult(response);
                         }
                     },
