@@ -87,9 +87,11 @@
                 android:text="@string/RegistrarResults_btnGuardar"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RegistrarResults_scrollAreas" />
+                app:layout_constraintTop_toBottomOf="@+id/RegistrarResults_scrollAreas"
+                tools:text="@string/RegistrarResults_btnGuardar" />
 
             <EditText
                 android:id="@+id/RegistrarResult_txtDate"
@@ -100,7 +102,7 @@
                 android:layout_marginEnd="24dp"
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
-                android:hint="Guardar"
+                android:hint="@string/dateTemplate"
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -124,42 +126,6 @@
                     android:visibility="visible" />
             </HorizontalScrollView>
 
-            <LinearLayout
-                android:id="@+id/CrearPlan_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:weightSum="3"
-                app:layout_constraintEnd_toStartOf="@+id/RegistrarResults_btnGuardar"
-                app:layout_constraintStart_toEndOf="@+id/RegistrarResults_btnCancelar"
-                app:layout_constraintTop_toBottomOf="@+id/RegistrarResults_scrollAreas"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/ic_add"
-                    android:tint="@color/colorGreen" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/quicksand"
-                    android:gravity="center"
-                    android:text="@string/CicloDesarrollo_btnCrearPlanAccion"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
@@ -168,6 +134,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/quicksand"
                 android:text="@string/RegistrarResults_formName"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/RegistrarResults_btnConsultar" />
@@ -180,6 +147,7 @@
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/quicksand"
                 android:text="@string/RegistrarResults_fechaApl"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -188,14 +156,27 @@
                 android:id="@+id/RegistrarResults_txtForm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="64dp"
                 android:fontFamily="@font/quicksand"
+                android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toBottomOf="@+id/RegistrarResults_btnConsultar"
                 tools:text="ASQ-3" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="27dp"
+                android:onClick="temp"
+                android:text="jiji"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

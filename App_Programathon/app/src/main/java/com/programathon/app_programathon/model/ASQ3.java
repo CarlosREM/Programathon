@@ -1,9 +1,10 @@
 package com.programathon.app_programathon.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ASQ3 {
+public class ASQ3 implements Serializable {
     private int id;
     private String name;
     private int minMonths;

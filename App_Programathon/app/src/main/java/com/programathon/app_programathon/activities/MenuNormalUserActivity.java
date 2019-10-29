@@ -139,68 +139,6 @@ public class MenuNormalUserActivity extends AppCompatActivity {
         }
     }
 
-    private void makeLoginRequest(String testId) throws JSONException {
-        String url = ConfigConstants.getInstance().getAPI_URL() + "FormPlan/GetByFormId?formHeaderId="+ testId;
-        SharedPreferences prefs;
-        prefs = getSharedPreferences(ConfigConstants.getInstance().getPREFS_NAME(), Context.MODE_PRIVATE);
-
-
-        JSONObject loginData = null;
-
-            loginData = new JSONObject(prefs.getString("LoginData", null));
-            final String authorization = loginData.getString("token_type") + " " + loginData.getString("access_token");
-        JsonArrayRequest postRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>()
-                {
-                    @Override
-                    public void onResponse(JSONArray response) {
-
-                        Log.d("Response", response.toString());
-
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        if (error == null) {
-                            Log.d("Error.Response", "Null error");
-                            return;
-                        }
-                        else if (error.networkResponse == null) {
-                            Log.d("Error.Response", "Null Network Response");
-                            Log.d("Error.Response", error.toString());
-                            return;
-                        }
-                        Log.d("Error.Response", error.toString());
-
-                        String msg = "Error: ";
-                        assert getCurrentFocus() != null;
-                        switch(error.networkResponse.statusCode) {
-
-                            default:
-                                msg += "desconocido";
-                                break;
-                        }
-                        Log.d("msg:", msg);
-                    }
-                }
-        ) {
-
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String,String> headers=new HashMap<>();
-                headers.put("accept","application/json");
-                headers.put("Authorization",authorization);
-                return headers;
-            }
-        };
-
-        Log.d("PostRequest", postRequest.toString());
-        queue.add(postRequest);
-    }
-
     public void salirMensaje(View view){
         DialogInterface.OnClickListener dialogInterface = new DialogInterface.OnClickListener() {
             @Override
